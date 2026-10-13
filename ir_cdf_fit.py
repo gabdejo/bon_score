@@ -98,7 +98,8 @@ def gof_bootstrap(sample, name, dist, n_mc, rng):
 
 
 def _params(d):
-    return [float(x) for x in d.args] + [float(d.kwds.get("loc", 0)), float(d.kwds.get("scale", 1))]
+    """Frozen dist -> [shape args..., loc, scale] in scipy order (fits pass all of them positionally)."""
+    return [float(x) for x in d.args] + [float(d.kwds[k]) for k in ("loc", "scale") if k in d.kwds]
 
 
 # ---------------------------------------------------------------- core analysis

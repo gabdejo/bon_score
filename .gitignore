@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+# data (local only)
+funds.csv
+weights.csv
+benchmarks.csv
+prices_raw.csv
+# generated outputs
+ir_*.csv
+ir_*.png
+ir_sims*.npy
+ir_sims_cols.json
